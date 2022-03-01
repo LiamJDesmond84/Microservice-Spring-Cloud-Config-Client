@@ -5,6 +5,8 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,6 +17,9 @@ public class GreetingController {
 	
 	@Autowired
 	private DbSettings dbSettings;
+	
+	@Autowired
+	private Environment env;
 	
 	// String
 	@Value("${my.greeting: default value here}")
@@ -41,5 +46,13 @@ public class GreetingController {
 		return dbSettings.getConnection() + dbSettings.getHost() + dbSettings.getPort();
 		// {connectionString: 'http://__', userName: 'Karl', password: 'pass'}127.0.0.11200
 	}
+	
+	// Environment - try to avoid using, especially for logic.  Would show default & other active profiles
+	//  - Use @Value, @ConfigurationProperties & @Profile instead.
+//	@GetMapping("/envdetails")
+//	public String envDetails() {
+////		return env.toString();
+////		return env.getActiveProfiles();
+//	}
 
 }
