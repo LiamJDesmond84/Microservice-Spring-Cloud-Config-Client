@@ -53,5 +53,10 @@
     "name": "dbValues",
     "type": "java.lang.String",
     "description": "A description for 'dbValues'"
+  },
+  {
+    "name": "my.greeting",
+    "type": "java.lang.String",
+    "description": "A description for 'my.greeting'"
   }
 ]}
