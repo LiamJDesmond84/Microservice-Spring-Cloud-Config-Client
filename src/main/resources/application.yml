@@ -7,6 +7,8 @@ app:
 #  port: 1200
 
 dbValues: '{connectionString: ''http://__'', userName: ''Karl'', password: ''pass''}'
+
+# Actuator busrefresh?
 management:
   endpoints:
     web:
